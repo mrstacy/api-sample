@@ -26,8 +26,6 @@ class ItunesControllerTest extends WebTestCase
         $client = $this->getTestClient();
         $client->request('GET', '/v1/itunes/albums', [], [], $headers);
         $content = json_decode($client->getResponse()->getContent());
-print json_encode($content, JSON_PRETTY_PRINT); exit;
-
 
         self::assertEquals(200, $client->getResponse()->getStatusCode());
         self::assertEquals('top100', $content->itune_id);

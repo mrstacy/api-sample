@@ -30,3 +30,6 @@ services:
 
     App\Factory\GuzzleHttpFactory:
         public: true
+
+    App\Services\Itunes\ItunesRssService:
+        public: true
