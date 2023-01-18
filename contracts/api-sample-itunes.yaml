@@ -1,0 +1,87 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Sample REST API
+  description: Sample REST API to retrieve itunes top 100 list
+host: localhost
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  '/v1/itunes/albums':
+    get:
+      summary: Returns the top 100 albums on the iTunes store
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              itune_id:
+                type: string
+                description: Itunes ID for album list
+              name:
+                type: string
+                description: Name of album list
+              itunes_last_updated:
+                type: string
+                format: date-time
+                description: Last date album list was updated on itunes
+              url:
+                type: string
+                description: URL to album list on itunes
+              rss_url:
+                type: string
+                description: URL to RSS feed for top 100 list on itunes
+              albums:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    itune_id:
+                      type: string
+                      description: Itunes ID for album
+                    name:
+                      type: string
+                      description: Name of album
+                    price:
+                      type: number
+                      format: double
+                      description: Itunes price of album
+                    song_count:
+                      type: integer
+                      description: The number of songs on the album
+                    rights:
+                      type: string
+                      description: The rights holder of the album
+                    release_date:
+                      type: string
+                      format: date-time
+                      description: The release date of the album
+                    category:
+                      type: object
+                      properties:
+                        itunes_id:
+                          type: string
+                          description: The id of the album's category
+                        name:
+                          type: string
+                          description: The name of the album's category
+                        url:
+                          type: string
+                          description: The URL of the album's category on the iTunes store
+                    artist:
+                      type: object
+                      properties:
+                        itunes_id:
+                          type: string
+                          description: The id of the album's artist
+                        name:
+                          type: string
+                          description: The name of the album's artist
+                        url:
+                          type: string
+                          description: The URL of the album's artist on the iTunes store
